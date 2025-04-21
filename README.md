@@ -1,6 +1,6 @@
 # 🕹️ Pong Connect (Transcendence)
 
-A modern twist on the classic Pong game — built as part of the **Transcendence** project. Developed using Django DRF and Vanilla JavaScript, it features local multiplayer and tournament play in a sleek, responsive interface.
+A modern twist on the classic Pong game — built as part of the **Transcendence** project. This web-based application reimagines the nostalgic gameplay of Pong with a fresh and responsive design. Developed using Django Rest Framework on the backend and Vanilla JavaScript on the frontend, the project focuses on delivering a smooth local multiplayer experience and an engaging tournament mode. With a clean UI, solid architecture, and a collaborative development approach, Pong Connect showcases our team’s ability to integrate design, logic, and usability into a cohesive and enjoyable game experience.
 
 ## 🚀 Features
 
