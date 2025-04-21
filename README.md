@@ -1,6 +1,6 @@
 # 🕹️ Pong Connect (Transcendence)
 
-A modern twist on the classic Pong game — built as part of the **Transcendence** project. Featuring real-time multiplayer gameplay and a sleek tournament mode.
+A modern twist on the classic Pong game — built as part of the **Transcendence** project. Developed using Django DRF and Vanilla JavaScript, it features local multiplayer and tournament play in a sleek, responsive interface.
 
 ## 🚀 Features
 
