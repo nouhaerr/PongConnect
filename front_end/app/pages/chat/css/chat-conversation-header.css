@@ -1,0 +1,202 @@
+@keyframes fade {
+  from{opacity: 0;}
+  to{opacity: 1;}
+}
+
+/* .chat-conversation-header{
+  background-color: rgba(0,0,0,0.1);
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  height: 100px;
+} */
+
+chat-conversation-header{
+  background-color: rgba(0,0,0,0.1);
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  height: 100px;
+}
+
+.chat-conversation-label{
+  display: flex;
+  align-items: center;
+}
+
+.chat-conversation-profile{
+  position: relative;
+  transition: opacity 0.6s ease-in-out;
+  cursor: pointer;
+}
+
+.chat-conversation-profile:hover{
+  opacity: 0.8;
+}
+
+.chat-conversation-profile:active{
+  opacity: 0.2;
+}
+ 
+.chat-conversation-pic{
+  height: 75px;
+  width: 75px;
+  border-radius: 60px;
+}
+
+.chat-conversation-info{
+  margin-left: 30px;
+  line-height: 25px;
+}
+
+.chat-conversation-name{
+  padding-top: 12px;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  /* text-shadow: 0 6px 5px #df727d; */
+}
+
+.chat-conversation-status{
+  color: #5fee5d;
+  padding-left: 8px;
+  /* text-shadow: 0px 6px 5px; */
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.chat-conversation-status.Offline{
+  color: rgb(129, 118, 118);
+}
+
+.chat-conversation-menu{
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.6s ease-in-out;
+}
+
+.chat-conversation-menu:hover{
+  background-color: rgba(140, 124, 124, 0.2);
+}
+
+.chat-conversation-menu.active {
+  background-color: rgba(73, 6, 6, 0.6);
+}
+
+.chat-conversation-menu img{
+  box-shadow: 0 0 15px white;
+  transition: box-shadow 0.3s;
+}
+
+.chat-conversation-menu.active img,
+.chat-conversation-menu:hover img{
+  box-shadow: none;
+}
+
+.chat-conversation-menu-list{
+  position: absolute;
+  width: 200px;
+  color: white;
+  font-weight: 600;
+  font-style: italic;
+  top: 70px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.chat-conversation-menu.active .chat-conversation-menu-list{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.chat-conversation-menu-list div{
+  background-color: rgb(100,0,0);
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.chat-conversation-menu-list div:hover{
+  background-color: rgb(50, 0, 0);
+}
+
+#chat-view-profile{
+  border-radius: 20px 20px 0px 0px;
+}
+
+#chat-clear{
+  border-radius: 0px 0px 20px 20px;
+}
+
+.tooltip{
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: rgba(187, 57, 57, 0.9);
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 8px 8px;
+  position: absolute;
+  bottom: -35px;
+  right: -35px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.chat-conversation-menu:hover .tooltip,
+.chat-conversation-profile:hover .tooltip{
+  animation: fade 0.6s ease-in-out 0.6s forwards;
+}
+
+.chat-conversation-menu.active .tooltip{
+  opacity: 0;
+  animation: none;
+}
+
+.chat-friend-playNow{
+  /* position: absolute; */
+  /* padding: 5px 14px; */
+  width: 140px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgba(13, 217, 207, 0.83); */
+  /* background: linear-gradient(to right, #3C1418 0%, rgba(0, 255, 242, 0.83) 100%); */
+  background-color: rgb(50,0,0);
+  border-radius: 40px;
+  color: white;
+  font-weight: 900;  
+  font-size: 20px;
+  box-shadow: 1px 4px 15px #df727d;
+  text-shadow: 0px 2px 5px #df727d;
+  transition: opacity 0.6s ease-in-out;
+  cursor: pointer;
+  /* right: -20px; */
+  /* bottom: -25px; */
+  /* opacity: 0; */
+}
+
+.chat-friend-playNow:hover{
+  opacity: 0.8;
+}
+
+.chat-friend-playNow:active{
+  box-shadow: none;
+}

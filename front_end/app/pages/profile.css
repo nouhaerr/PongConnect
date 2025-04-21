@@ -1,0 +1,548 @@
+/* Corps de la page */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(100deg, #62272D, #000000);
+    overflow-x: hidden;
+}
+
+
+
+/* Barre supérieure */
+.top-bar {
+    width: 100%;
+    height: 70px;
+    background: transparent;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-container .logo {
+    height: 50px;
+}
+
+/* Barre de recherche */
+.search-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 5px 15px;
+    width: 50%;
+}
+
+.search-icon {
+    height: 20px;
+    margin-right: 10px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: #000;
+    width: 100%;
+}
+
+/* Boutons d'action */
+.action-buttons .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #C9C88F;
+    margin-left: 15px;
+}
+
+.action-buttons .circle img {
+    width: 60%;
+}
+
+/* Lignes verticales */
+.vertical-line {
+    width: 55px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid #62272D;
+    border-radius: 150px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 10%;
+    z-index: 10;
+}
+
+.vertical-line.right {
+    right: 10px;
+    left: unset;
+    border: 3px solid #2c2603;
+}
+
+.vertical-line.left {
+    left: 10px;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle img {
+    width: 60%;
+}
+
+/* Animation des boutons du cadre */
+.vertical-line .circle {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.vertical-line .circle:hover {
+    transform: scale(1.2); /* Grossit légèrement le bouton */
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.6); /* Ajoute un effet lumineux */
+    background-color: rgba(255, 255, 255, 0.1); /* Change légèrement la couleur de fond */
+}
+
+.vertical-line .circle:active {
+    transform: scale(1); /* Retourne à sa taille normale lorsqu'il est cliqué */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.4); /* Réduit légèrement l'ombre */
+    background-color: rgba(255, 255, 255, 0.2); /* Accentue la couleur de fond */
+}
+
+/* Animation continue (pulsation) */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.vertical-line .circle.pulse {
+    animation: pulse 2s infinite; /* Animation de pulsation continue */
+}
+
+/* Animation pour les boutons d'action (Search, Notification, Settings) */
+.action-buttons .circle {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.action-buttons .circle:hover {
+    transform: scale(1.2); /* Agrandit légèrement */
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.6); /* Ajoute une ombre lumineuse */
+    background-color: rgba(255, 255, 255, 0.1); /* Change légèrement la couleur de fond */
+}
+
+.action-buttons .circle:active {
+    transform: scale(1); /* Retourne à la taille normale lors du clic */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.4); /* Réduit légèrement l'ombre */
+    background-color: rgba(255, 255, 255, 0.2); /* Accentue la couleur de fond */
+}
+
+/* Animation continue (pulsation pour des éléments spécifiques) */
+@keyframes pulse-action {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.action-buttons .circle.pulse {
+    animation: pulse-action 2s infinite; /* Animation de pulsation continue */
+}
+
+/* Animation pour la barre de recherche */
+.search-bar {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.search-bar:hover {
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.5); /* Ajoute une ombre lumineuse */
+    transform: scale(1.02); /* Légèrement plus grand */
+}
+
+.search-bar:active {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); /* Réduit légèrement l'ombre */
+    transform: scale(1); /* Retour à la taille normale */
+}
+
+/* Section principale */
+.profile-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    padding: 20px;
+}
+
+
+
+/* Profile Header */
+.profile-header {
+    position: relative;
+    width: calc(100% - 180px); /* Ajusté pour s'aligner avec les lignes verticales */
+    margin: 70px auto;
+    background: rgba(255, 255, 255, 0.05); /* Arrière-plan léger */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 40px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    gap: 20px;
+}
+
+/* Avatar */
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Informations utilisateur */
+.user-info h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.user-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.user-info .friends-count {
+    font-weight: bold;
+    color: #4caf50; /* Couleur verte pour les amis */
+    font-size: 1.0rem;
+    text-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Petit effet de lumière */
+}
+
+/* Style de la section Level */
+.level-info {
+    font-size: 1.0rem;
+    color: #ffffff;
+    margin: 10px 0 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.level-info .level-number {
+    color: #f1c40f; /* Couleur dorée pour le niveau */
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px rgba(241, 196, 15, 0.8);
+}
+
+.level-info #level-percentage {
+    color: #4caf50; /* Couleur verte pour le pourcentage */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(76, 175, 80, 0.8);
+}
+
+/* Style pour la section Rank */
+.rank-info {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+    color: #ffffff;
+}
+
+.rank-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: all 0.5s ease;
+}
+
+/* Thèmes pour chaque rang */
+.rank-title.bronze {
+    color: #cd7f32;
+}
+
+.rank-title.silver {
+    color: #c0c0c0;
+}
+
+.rank-title.gold {
+    color: #ffd700;
+}
+
+.rank-title.platinum {
+    color: #76e2e8;
+}
+
+.rank-title.diamond {
+    color: #b9f2ff;
+}
+
+
+/* Barre de progression */
+.progress {
+    height: 15px;
+    width: 100%; /* Barre de progression étendue */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%; /* Commence à 0% pour l'animation */
+    background: linear-gradient(90deg, #1a77a2, #2ff67f); /* Dégradé dynamique */
+    transition: width 1s ease-in-out;
+    border-radius: 10px 0 0 10px;
+}
+
+/* Rang */
+.rank {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f1c40f; /* Couleur pour le rang */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.highlight-rank {
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+}
+
+/* Statistiques supplémentaires */
+.stats {
+    text-align: right;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
+.stat-progress {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.stat-progress .progress-bar {
+    transition: width 0.5s ease-in-out;
+}
+
+/* Icônes */
+.bi {
+    font-size: 1.5rem;
+    margin-left: 5px;
+}
+
+.stats-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
+}
+
+.stats-item span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.text-success {
+    color: #4caf50;
+}
+
+.text-danger {
+    color: #e91e63;
+}
+
+/* Bouton */
+.btn-outline-light {
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Conteneur des cartes */
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: calc(100% - 180px); /* Même largeur que le Profile Header */
+    margin: 20px auto; /* Espacement entre le Profile Header et les cartes */
+    padding: 20px 0;
+    gap: 20px; /* Espacement entre les cartes */
+}
+
+
+
+/* Titres des cartes */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #f1c40f;
+    text-align: center;
+}
+
+/* Contenu des cartes */
+.card-content p {
+    margin: 3px 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+.card-content p span {
+    font-weight: bold;
+    color: #28a745; /* Couleur pour les éléments positifs */
+}
+
+.card-content p span.offline {
+    color: #dc3545; /* Couleur pour les éléments négatifs */
+}
+
+
+
+.card {
+    flex: 1; /* Assure une largeur égale */
+    background: rgba(255, 255, 255, 0.08); /* Fond semi-transparent */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 450px; /* Fixez une hauteur identique pour toutes les cartes */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Assure l'alignement du contenu */
+}
+
+/* Élément individuel dans une carte */
+.card-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card.achievements .card-content {
+    margin-top: auto;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Avatar */
+.card-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+/* Contenu de chaque élément */
+.card-content h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: white;
+}
+
+
+/* Scores */
+.player-score {
+    color: white;
+    font-weight: bold;
+}
+
+.opponent-score {
+    color: #28a745; /* Vert pour l'adversaire */
+    font-weight: bold;
+}
+
+/* Statut en ligne / hors ligne */
+.online {
+    color: #28a745; /* Vert pour "Online" */
+}
+
+.offline {
+    color: #dc3545; /* Rouge pour "Offline" */
+}
+
+.page {
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#app.loading {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}

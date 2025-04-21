@@ -1,0 +1,478 @@
+/* Corps de la page */
+body {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(100deg, #62272D, #000000);
+    overflow-x: hidden;
+}
+
+/* Barre supérieure */
+.top-bar {
+    /* width: calc(100% - 120px); Ajustement pour ne pas chevaucher la navbar */
+    height: 70px;
+    background: transparent;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* left: 90px;  */
+    z-index: 99;
+    gap:10px;
+    
+}
+.top-bar {
+    width: 100%;
+        height: 70px;
+        background: transparent;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 70px;
+    /* margin-left: -61%; */
+}
+
+/* Barre de recherche */
+.search-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 8px 15px;
+    width: 100%; 
+    max-width: 400px; /* Empêche la barre d'être trop large */
+    transition: all 0.3s ease;
+}
+
+.search-icon {
+    height: 18px;
+    margin-right: 8px;
+    filter: brightness(0) invert(1); /* Pour assurer la visibilité */
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+    color: #fff;
+    width: 100%;
+}
+
+/* 🔹 Correction des Boutons d'Action (Notification, Shop, etc.) */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    /* padding-right: 20px; */
+    gap: 10px;
+}
+
+/* Boutons d'action */
+.action-buttons .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #C9C88F;
+    /* margin-left: 15px; */
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.action-buttons .circle:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.action-buttons .circle img {
+    width: 55%;
+}
+
+/* Lignes verticales */
+.vertical-line {
+    width: 55px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid #62272D;
+    border-radius: 150px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    overflow: hidden;
+    top: 10%;
+    z-index: 10;
+}
+
+.vertical-line.right {
+    right: 10px;
+    left: unset;
+    border: 3px solid #2c2603;
+}
+
+.vertical-line.left {
+    left: 10px;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;  /* Pour le positionnement du badge */
+}
+
+.circle.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.circle img {
+    width: 60%;
+}
+
+/* Animation des boutons du cadre */
+.vertical-line .circle {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.vertical-line .circle:hover {
+    transform: scale(1.2); /* Grossit légèrement le bouton */
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.6); /* Ajoute un effet lumineux */
+    background-color: rgba(255, 255, 255, 0.1); /* Change légèrement la couleur de fond */
+}
+
+.vertical-line .circle:active {
+    transform: scale(1); /* Retourne à sa taille normale lorsqu'il est cliqué */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.2); /* Accentue la couleur de fond */
+}
+
+/* Animation continue (pulsation) */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.vertical-line .circle.pulse {
+    animation: pulse 2s infinite; /* Animation de pulsation continue */
+}
+
+/* Animation pour les boutons d'action (Search, Notification, Settings) */
+.action-buttons .circle {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.action-buttons .circle:hover {
+    transform: scale(1.2); /* Agrandit légèrement */
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.6); /* Ajoute une ombre lumineuse */
+    background-color: rgba(255, 255, 255, 0.1); /* Change légèrement la couleur de fond */
+}
+
+.action-buttons .circle:active {
+    transform: scale(1); /* Retourne à la taille normale lors du clic */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.4); /* Réduit légèrement l'ombre */
+    background-color: rgba(255, 255, 255, 0.2); /* Accentue la couleur de fond */
+}
+
+/* Animation continue (pulsation pour des éléments spécifiques) */
+@keyframes pulse-action {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.action-buttons .circle.pulse {
+    animation: pulse-action 2s infinite; /* Animation de pulsation continue */
+}
+
+/* Animation pour la barre de recherche */
+.search-bar {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.search-bar:hover {
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.5); /* Ajoute une ombre lumineuse */
+    transform: scale(1.02); /* Légèrement plus grand */
+}
+
+.search-bar:active {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); /* Réduit légèrement l'ombre */
+    transform: scale(1); /* Retour à la taille normale */
+}
+
+.page {
+    width: 100%;
+    display: none;
+}
+.page.active {
+    display: block;
+}
+
+.language-switch {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px !important;  /* Ajout de !important */
+    height: 40px !important; /* Ajout de !important */
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid #FFD700;
+}
+
+.language-switch:hover {
+    transform: scale(1.1);
+    background: rgba(255, 215, 0, 0.2);
+}
+
+.language-switch span {
+    font-size: 14px;
+    color: #FFD700;
+    font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+    .top-bar {
+        padding: 0 10px;
+        gap: 8px;
+    }
+    .logo {
+        height: 60px;
+    }
+
+    .action-buttons {
+        gap: 5px;
+    }
+    .action-buttons .circle {
+        width: 34px !important;
+        height: 34px !important;
+    }
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px;
+    background: rgba(13, 13, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    border-radius: 16px;
+    margin-top: 15px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(255, 215, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    max-height: 350px;
+    overflow-y: auto;
+    animation: slideDown 0.3s ease-out;
+    overflow-x: hidden;  /* Empêche le défilement horizontal */
+    white-space: nowrap;  /* Empêche le texte de passer à la ligne */
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+    width: 100%;  /* Force la largeur à 100% */
+    box-sizing: border-box;  /* Inclut padding et border dans la largeur */
+}
+
+.search-result-item:nth-child(1) { animation-delay: 0.1s; }
+.search-result-item:nth-child(2) { animation-delay: 0.2s; }
+.search-result-item:nth-child(3) { animation-delay: 0.3s; }
+.search-result-item:nth-child(4) { animation-delay: 0.4s; }
+
+.search-result-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #FFD700, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.search-result-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(10px) scale(1.02);
+    padding-left: 20px;
+}
+
+.search-result-item:hover::before {
+    opacity: 1;
+}
+
+.result-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    margin-right: 15px;
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    padding: 2px;
+    transition: all 0.3s ease;
+}
+
+.search-result-item:hover .result-avatar {
+    transform: rotate(5deg) scale(1.1);
+    border-radius: 50%;
+}
+
+.result-username {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 2px;
+    overflow: hidden;  /* Cache le texte qui dépasse */
+    text-overflow: ellipsis;  /* Ajoute ... si le texte est trop long */
+    white-space: nowrap;  /* Garde le texte sur une seule ligne */
+    max-width: calc(100% - 60px);  /* Laisse de l'espace pour l'avatar */
+}
+
+.result-username::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #FFD700, transparent);
+    transition: width 0.3s ease;
+}
+
+.search-result-item:hover .result-username::after {
+    width: 100%;
+}
+
+.no-results {
+    padding: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    animation: pulse 2s infinite;
+}
+
+/* Scrollbar moderne */
+.search-results::-webkit-scrollbar {
+    width: 5px;
+}
+
+.search-results::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #FFD700, #FFA500);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        transform: translateX(-50%) translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Effet de flou autour de la liste */
+.search-results::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: rgba(255, 215, 0, 0.05);
+    filter: blur(20px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #FF4444;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #62272D;
+    animation: pulse 2s infinite;
+}

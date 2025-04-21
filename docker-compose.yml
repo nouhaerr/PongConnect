@@ -1,0 +1,134 @@
+services:
+  postgres_database:
+    init: true
+    image: postgres:15
+    container_name: postgres_database
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+    networks:
+      - transcendence_network
+    ports:
+      - "5432:5432"
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 30s
+      retries: 5
+
+
+  backend_server:
+    init: true
+    build: ./Server/.
+    container_name: backend_server
+    image: backend_server
+    depends_on:
+      postgres_database:
+        condition: service_healthy
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./Server/:/Server:rw
+      - ./Server/private_ssl:/etc/ssl:ro
+    networks:
+      - transcendence_network
+    restart: always
+
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin4
+    depends_on:
+      postgres_database:
+        condition: service_healthy
+    env_file:
+      - .env
+    volumes:
+    - ./pgadmin-servers.json:/pgadmin4/servers.json
+    ports:
+      - "8080:80"
+    networks:
+      - transcendence_network
+    restart: on-failure
+
+
+  celery_worker:
+    build: ./Server/.
+    # image: backend_server
+    container_name: celery_worker
+    command: > 
+      bash -c "
+        echo 'Waiting for migrations to complete...' &&
+        sleep 15 &&
+        echo 'Starting Celery worker...' &&
+        celery -A api worker -l info
+      "
+    # command: celery -A api worker -l info
+    user: nobody
+    depends_on:
+      postgres_database:
+        condition: service_healthy
+      backend_server:
+        condition: service_started
+    env_file:
+      - .env
+    volumes:
+      - ./Server/:/Server:rw
+    networks:
+      - transcendence_network
+    restart: always
+
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - transcendence_network
+    restart: always
+
+
+  celery_beat:
+    build: ./Server/.
+    # image: backend_server
+    container_name: celery_beat
+    command: celery -A api beat -l info
+    depends_on:
+      - backend_server
+      - postgres_database
+      - redis
+    env_file:
+      - .env
+    volumes:
+      - ./Server/:/Server:rw
+    networks:
+      - transcendence_network
+    restart: always
+
+
+  frontend:
+    build: ./front_end/.
+    container_name: frontend
+    volumes:
+      - ./front_end/:/var/www/ft_transcendence/:rw
+      - ./front_end/private_ssl:/etc/ssl:ro
+    ports:
+      - "443:443"
+    networks:
+      - transcendence_network
+    depends_on:
+      - backend_server
+    restart: always
+
+volumes:
+  postgres_data:
+
+networks:
+  transcendence_network:
+    name: transcendence_network
+    driver: bridge

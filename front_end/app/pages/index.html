@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong Game</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const params = new URLSearchParams(window.location.search);
+            const token = params.get('token');
+
+            if (token) {
+                localStorage.setItem('access_token', token);
+                window.history.replaceState(null, "", window.location.pathname);
+            }
+        })
+    </script>
+</head>
+<body>
+
+    <!-- <custom-navbar></custom-navbar> -->
+
+
+    <login-page class="page active"></login-page> 
+    <home-page class="page"></home-page>
+    <profile-page class="page"></profile-page>
+    <chat-page class="page"></chat-page>
+    <game-page class="page"></game-page>
+    <settings-page class="page"></settings-page>
+
+    <script src="translations.js"></script>
+    <script src="navbar.js"></script>
+    <script src="home.js"></script>
+    <script src="profile.js"></script>
+    <script src="chat.js"></script>
+    <script src="scripts/game.js"></script>
+    <script src="settings.js"></script>
+    <script src="login.js"></script>
+    <script src="router.js"></script>
+    
+
+</body>
+</html>
