@@ -13,11 +13,11 @@ A modern twist on the classic Pong game — built as part of the **Transcendence
 ## 📸 Screenshots
 
 <!-- You can add screenshots like this -->
-![SignUp Screenshot](Sreens/0.png)
-![SignIn Screenshot](Sreens/2.png)
+![SignUp Screenshot](Screens/0.png)
+![SignIn Screenshot](cSreens/2.png)
 ![Home Screenshot](Sreens/1.png)
 ![Multiplayer Mode](Screens/4.png)
-![Tic-Tac-Toe Game](Sreens/5.png)
+![Tic-Tac-Toe Game](Screens/5.png)
 ![Setting Screenshot](Screens/6.png)
 ![Friend Screenshot](Screens/7.png)
 ![Profile2 Screenshot](Screens/8.png)
