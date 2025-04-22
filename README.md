@@ -69,7 +69,15 @@ To build and run the project with Docker, use the provided Makefile:
 ```bash
 make
 ```
-This will build the containers and start the application.
+This will build and start the following containers:
+
+- Database Container: PostgreSQL container to manage data persistence.
+- Frontend Container: Angular frontend for the user interface.
+- Backend Container: Django backend to handle API requests and logic.
+- pgAdmin Container: A containerized pgAdmin instance for managing the database.
+- Celery Container: A container for handling asynchronous background tasks.
+  
+Docker Compose will handle the orchestration of all the containers, ensuring each service is configured and linked correctly. After running the make command, the application will be up and running, ready to serve the frontend, backend, and handle database operations seamlessly.
 
 ## 🤝 Collaborators
 
