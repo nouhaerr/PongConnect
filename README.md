@@ -72,7 +72,7 @@ make
 This will build and start the following containers:
 
 - Database Container: PostgreSQL container to manage data persistence.
-- Frontend Container: Angular frontend for the user interface.
+- Frontend Container: Vanilla JS/CSS frontend for the user interface.
 - Backend Container: Django backend to handle API requests and logic.
 - pgAdmin Container: A containerized pgAdmin instance for managing the database.
 - Celery Container: A container for handling asynchronous background tasks.
